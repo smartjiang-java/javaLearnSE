@@ -3,7 +3,8 @@
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/myJavaSELeanrncode/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springredisdemo/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zookerperdemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zookeeperdemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zookeeperdemo/src/main/resources/log4j.properties" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

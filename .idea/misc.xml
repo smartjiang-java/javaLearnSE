@@ -68,8 +68,8 @@
         <option value="$PROJECT_DIR$/053-springboot-dubbo-ssm-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/springdemo/pom.xml" />
         <option value="$PROJECT_DIR$/myJavaSELeanrncode/pom.xml" />
-        <option value="$PROJECT_DIR$/zookerperdemo/pom.xml" />
         <option value="$PROJECT_DIR$/springredisdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/zookeeperdemo/pom.xml" />
       </list>
     </option>
   </component>
