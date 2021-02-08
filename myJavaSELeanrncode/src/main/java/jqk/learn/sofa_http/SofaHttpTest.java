@@ -19,7 +19,6 @@ import java.util.Map;
 public class SofaHttpTest {
 
     public static void main(String[] args) {
-
         //rpc:需要打包，引入接口
         // User user = chinaPayForServiceFacade.getOptionalRepairCompanies(person);
 
