@@ -12,6 +12,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         //watch的注册只发生在读类型调用,get,exists
         final CountDownLatch countDownLatch = new CountDownLatch(1);
+
+        //new ZooKeeper(ip地址，多个   连接时间    Watch    );
         final ZooKeeper zooKeeper = new ZooKeeper("192.168.150.11:2181,192.168.150.12:2181,192.168.150.13:2181,192.168.150.14:2181",
                 3000, new Watcher() {
             @Override
@@ -64,6 +66,8 @@ public class App {
 
         //到这里阻塞,直至回到完成,即连接成功
         countDownLatch.wait();
+
+        //连接状态
         ZooKeeper.States keeperState = zooKeeper.getState();
         switch (keeperState) {
             case CONNECTING:
@@ -83,10 +87,13 @@ public class App {
             case NOT_CONNECTED:
                 break;
         }
-        //做增
+
+        //增加节点
         zooKeeper.create("/xxoo","olddata".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+
         //查
         final Stat stat = new Stat();
+        //zooKeeper.getData( 节点目录   Watch   Stat)
         byte[] keeperData = zooKeeper.getData("ooxx", new Watcher() {
             //数据发生变,调用这个watch,一次性的
             @Override
@@ -106,12 +113,14 @@ public class App {
             }
         }, stat);
         System.out.println(new String(keeperData));
+
         //改:第一次会触发回调
         Stat stat1 = zooKeeper.setData("/ooxx", "newdata".getBytes(), 0);
         zooKeeper.setData("/ooxx","newdata01".getBytes(),stat1.getVersion());
 
         //异步
         System.out.println(" async start-------");
+        // 异步：zooKeeper.getData(节点目录   Watch    CallBack    CTX(随意))
         zooKeeper.getData("/ooxx",false, new AsyncCallback.DataCallback() {
             @Override
             public void processResult(int i, String s, Object o, byte[] bytes, Stat stat) {

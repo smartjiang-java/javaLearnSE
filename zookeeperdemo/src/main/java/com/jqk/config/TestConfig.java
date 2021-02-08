@@ -25,7 +25,7 @@ public class TestConfig {
 
     @Before
     public void connection() {
-
+       zk=ZkUtils.getZookeeper();
     }
 
     @After
@@ -44,7 +44,6 @@ public class TestConfig {
         callBackWatch.setZk(zk);
         ConfData confData = new ConfData();
         callBackWatch.setConf(confData);
-
         callBackWatch.awiat();
         while(true){
             if(confData.getConf().equals("")){

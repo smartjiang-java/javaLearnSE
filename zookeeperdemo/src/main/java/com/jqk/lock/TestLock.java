@@ -1,5 +1,6 @@
 package com.jqk.lock;
 
+import com.jqk.config.ZkUtils;
 import org.apache.zookeeper.ZooKeeper;
 import org.junit.After;
 import org.junit.Before;
@@ -17,16 +18,18 @@ public class TestLock {
 
     @Before
     public void connection() {
-        try {
-            zk.close();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        zk  = ZkUtils.getZookeeper();
     }
 
     @After
     public void close() {
-
+        try {
+            if(zk!=null){
+                zk.close();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -35,7 +38,7 @@ public class TestLock {
             new Thread(){
                 @Override
                 public void run() {
-                    //每一个线程区抢锁
+                    //每一个线程区抢锁,都有自己独立的东西
                     WatchCallback watchCallback = new WatchCallback();
                     watchCallback.setZk(zk);
                     String threadName = Thread.currentThread().getName();
@@ -45,14 +48,15 @@ public class TestLock {
                     watchCallback.tryLock();
 
                     //干活
-                    System.out.println("干活");
+                    System.out.println("干活....");
                     try {
-                        Thread.sleep(2000);
+                        //如果没有这个休眠，可能会导致其他节点还没排完序，锁就释放了
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
 
-                    //师傅那个锁
+                    //释放锁
                     watchCallback.unLock();
 
 
@@ -60,9 +64,12 @@ public class TestLock {
                 }
             }.start();
         }
+
+        while(true){
+
+        }
+
+
     }
-
-
-
 
 }
