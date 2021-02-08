@@ -1,4 +1,4 @@
-package com.jqk.zookeeper;
+package com.jqk.use;
 
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
@@ -39,8 +39,7 @@ public class App {
                         break;
                     case Closed:
                         break;
-                }
-                ;
+                };
                 Event.EventType type = event.getType();
                 switch (type) {
                     case None:
@@ -59,8 +58,7 @@ public class App {
                         break;
                     case PersistentWatchRemoved:
                         break;
-                }
-                ;
+                };
             }
         });
 
