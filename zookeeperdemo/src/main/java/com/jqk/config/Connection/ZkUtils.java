@@ -1,5 +1,6 @@
-package com.jqk.config;
+package com.jqk.config.Connection;
 
+import com.jqk.config.Connection.DefaultWatch;
 import org.apache.zookeeper.ZooKeeper;
 
 import java.util.concurrent.CountDownLatch;

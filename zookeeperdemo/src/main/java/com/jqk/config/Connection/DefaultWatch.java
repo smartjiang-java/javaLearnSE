@@ -1,4 +1,4 @@
-package com.jqk.config;
+package com.jqk.config.Connection;
 
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;

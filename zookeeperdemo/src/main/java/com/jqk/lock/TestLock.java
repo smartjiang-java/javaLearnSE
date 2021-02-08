@@ -1,6 +1,6 @@
 package com.jqk.lock;
 
-import com.jqk.config.ZkUtils;
+import com.jqk.config.Connection.ZkUtils;
 import org.apache.zookeeper.ZooKeeper;
 import org.junit.After;
 import org.junit.Before;

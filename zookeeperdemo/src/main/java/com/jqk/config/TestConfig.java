@@ -1,16 +1,11 @@
 package com.jqk.config;
 
-import org.apache.zookeeper.AsyncCallback;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
+import com.jqk.config.Connection.ZkUtils;
 import org.apache.zookeeper.ZooKeeper;
-import org.apache.zookeeper.data.Stat;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.util.concurrent.CountDownLatch;
 
 /**
  * @Author:JiangQiKun
@@ -25,7 +20,7 @@ public class TestConfig {
 
     @Before
     public void connection() {
-       zk=ZkUtils.getZookeeper();
+       zk= ZkUtils.getZookeeper();
     }
 
     @After
