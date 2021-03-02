@@ -1,11 +1,9 @@
 package jqk.learn.framework.spring.aop.v2;
 
-
-
 import java.util.Random;
 
 /**
- *
+ * @author 16770
  */
 public class Tank {
 
