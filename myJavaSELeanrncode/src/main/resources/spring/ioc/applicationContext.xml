@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- spring默认是单例的,容器创建时就装配;设置成prototype则是多例的,在使用该bean才被装配,等同于BeanFactory-->
+    <bean id="person" class="jqk.learn.framework.spring.ioc.Person" scope="singleton"
+    p:name="zahngsan" p:age="23"  />
+
+    <bean id="person" class="jqk.learn.framework.spring.ioc.Person" scope="singleton"
+          c:name="zahngsan" c:age="23"  />
+
+</beans>
+
