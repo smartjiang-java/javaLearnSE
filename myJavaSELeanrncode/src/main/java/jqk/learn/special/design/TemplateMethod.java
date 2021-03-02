@@ -12,11 +12,23 @@ package jqk.learn.special.design;
 
 /**
  * 继承一个抽象类，只需要实现抽象类的抽象方法即可
+ * @author 16770
  */
 public class TemplateMethod  extends MyTest{
     @Override
     public void test2() {
+        System.out.println("test2");
+    }
 
+    @Override
+    public void test1() {
+        System.out.println("重写了抽象类已经实现的方法");
+    }
+
+    public static void main(String[] args) {
+        TemplateMethod method = new TemplateMethod();
+        method.test1();
+        method.test2();
     }
 
 }
@@ -35,7 +47,7 @@ interface Test{
 abstract class MyTest implements  Test{
 
     @Override
-    public void test1() {
+    public  void test1() {
         System.out.println("test1");
     }
 

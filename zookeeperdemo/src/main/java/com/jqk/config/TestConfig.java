@@ -17,7 +17,6 @@ public class TestConfig {
 
     ZooKeeper zk;
 
-
     @Before
     public void connection() {
        zk= ZkUtils.getZookeeper();
@@ -51,5 +50,7 @@ public class TestConfig {
             }
         }
     }
+
+
 
 }

@@ -1,5 +1,4 @@
 ##1:前提条件,图1,2
-
 1.点连成线 线连成面 面成体积
 JAVA中的点：java的基础语法
 JAVA中的线：JAVA的核心技术
@@ -15,7 +14,6 @@ JRE：JAVA Runtime Enviroment JAVA运行环境
 JVM：JAVA virtual Machine java虚拟机  跨平台,可移植,JVM也是运行在内存中的,它管理自己的一块内存
 
 ## 2:JVM，图3，4,5,6,7,8,9,10,11
-
 1:所有关于类的信息全部保存在方法区，通过常量池来保存。生成了一个代表所有类信息的对象，classinstance
 堆区是gc的主要区域，通常情况下分为两个区块年轻代和年老代
 
@@ -157,9 +155,7 @@ Collection接口中有stream()和parallelStream()实现方法
 >把多个单个线程（具有相同属性）集中管理，叫做线程组--->设计模式之组合模式
 >一个线程必须拥有一个组，线程的优先级以及是否为守护线程与父线程相同
 >java每个线程中包含父线程德引用，在liunx中所有线程都是由线程fock出来的；有安全管理器
->
->
-> 
+
 
 ### IO操作
 
@@ -170,4 +166,137 @@ FileOutputStream/FileInputStream :从内存到磁盘
 spring加载配置文件是如何操作的？  
 通过类加载器去加载配置文件，生成一个流，Properties继承了HashTable,存储的是键值对   创建的对象可以加载一个流
 
+计算机之间是通过协议进行沟通的，协议就是一种约定，TCP/IP协议栈，分层，解耦
+SOA：
+多台机器集群，
+服务注册中心，服务注册和查找。
+服务检测中心：检测服务的状态。
+负载均衡，接收所有的请求。
+缓存：解决高速和低速不匹配的状态，可以有一级缓存和二级缓存。
+
+变量：作为容器，有大小，存放数据,容器还可以分类。
+java中的char为什么用两个字节存储一个字符？ java使用Unicode编码，utf8是对unicode的实现，延伸了ASCII,两字节编码。 
+
+### 网络编程
+
+Tomcat:  
+http://localhost:8080/xxx==http://127.0.0.1:8080/xxx
+[ip有很多种比如127.0.0.1这个叫做本地回环IP，255.255.255.255广播地址]   
+[localhost:8080:套接字=域名+端口号] new InterSocketAdress(bindAddr,port);
+
+面试问题： 输入一个连接要经历那些步骤？
+[键入http://www.baidu.com->DNS解析->通过TCP协议封装数据->
+把TCP的报文封装成IP数据报->通过ARP找到下一个要发送的机器的 MAC地址->封装成帧发送]
+
+C/S架构： 其实就是C负责发送请求，S负责响应请求
+B/S架构： 浏览器发送请求，S响应请求 0xFFFF:一位16进制由四为二进制
+注意：[B/s架构是基于C/S架构的，放大来看，浏览器就是一个进程，服务器也是一个进程，通过TCP进行进程间的互相通讯只不过传输的是html文档]
+
+F：1111 4*4=16; 2^16=65536; [端口号的范围：0<port<65536 一个端口号代表一个进程]
+注意：[在计算机中，0-1024内的端口都是给系统备用的，在定义自己的端口的时候要大于1024]
+查看那些端口号已经被占用：netstat -an
+
+面试题：编码，字节
+为什么在java中能用char来存储一个汉字？
+在java中，1个字符=两个字节=16位    在UTF-8中，一个汉字用两个字节表示，有些复杂的用三字节表示
+
+[BIO:阻塞IO，等待接收外部的链接，起到监听的作用]
+
+TCP：可靠的协议： 1：超时重传   2:接收确认  3：滑动窗口避免拥塞(拥塞避免算法)
+TCP:这东西是ServerSocket
+Tomcat:JSP+Servlet规范的服务器，是一个动态服务器，可以从数据库中找到需要的数据返回浏览器
+Apache：就是一个静态服务器，只服务于静态的东西。例如,html，css,js
+刚开始web只是用来存储和分享html静态页面，URI：统一资源标识符   
+URL：统一资源定位，如http：//www.baidu.com:80/xxx/xxx   通过域名找到服务器，通过端口找到进程，通过请求资源目录找到页面
+
+
+分布式JAVA EE
+RMI：机器之间同步交互
+JMS：异步交互
+JPA：用来做数据存储
+JTS：做分布式事务
+JNDI：Java命名目录接口，统一管理组件，相当于注册中心
+EJB：JAVA Bean.很复杂
+面试题目：[在java中能够向下转型的条件是什么？]   --->必须先发生向上转型
+
+
+### spring学习及源码分析
+在Java中，接口是对行为的高度抽象，说明了要做什么，但是没有说具体的计划
+面向对象的设计原则：接口隔离
+既然每个接口都是一个功能，那么定义一个接口继承了好几个接口是不是就拥有了多个功能的接口。
+所以，如何看源码：
+1：看单独接口的功能
+2：看组合接口的功能
+3：看实现
+
+#### BeanFactory
+BeanFactory：可以创建bean实例对象，单例的，多例的，spring2.0的时候，加入了request和session 
+提供了最基础的容器查看bean是否存在，保存了bean定义，并且可以根据不同的条件获取bean，查看bean是否是单例的，多例的，获取bean的别名，
+有一个&用来获取工厂本身而不是获取bean的实例。
+明白了： bean工厂有层级关系。找bean的过程：从子到父。可以给bean指定别名。bean的生命周期
+##### 1：bean的生命周期
+ * <ol> 初始化顺序 一堆接口->init-method->psotXXX，一切就绪的接口->destroy-method
+ * <1>BeanNameAware's {@code setBeanName}
+ * <2>BeanClassLoaderAware's {@code setBeanClassLoader}
+ * <3>BeanFactoryAware's {@code setBeanFactory}
+ * <4>EnvironmentAware's {@code setEnvironment}
+ * <5>EmbeddedValueResolverAware's {@code setEmbeddedValueResolver}
+ * <6>ResourceLoaderAware's {@code setResourceLoader}
+ * (only applicable when running in an application context)
+ * <7>ApplicationEventPublisherAware's {@code setApplicationEventPublisher}
+ * (only applicable when running in an application context)
+ * <8>MessageSourceAware's {@code setMessageSource}
+ * (only applicable when running in an application context)
+ * <9>ApplicationContextAware's {@code setApplicationContext}
+ * (only applicable when running in an application context)
+ * <10>ServletContextAware's {@code setServletContext}
+ * (only applicable when running in a web application context)
+ * <11>{@code postProcessBeforeInitialization} methods of BeanPostProcessors
+ * <12>InitializingBean's {@code afterPropertiesSet}
+ * <13>a custom init-method definition
+ * <14>{@code postProcessAfterInitialization} methods of BeanPostProcessors
+ * </ol>
+
+* <ol> 销毁
+* <1>{@code postProcessBeforeDestruction} methods of DestructionAwareBeanPostProcessors
+* <2>DisposableBean's {@code destroy}
+* <3>a custom destroy-method definition
+* </ol>
+##### 2:取地址符的作用
+String FACTORY_BEAN_PREFIX = "&";
+实现了FactoryBean，创建实例的时候调用FactoryBean接口的getObject()方法;加上&地址符，返回的是对象本身
+加了这个取地址符，返回的是工厂本身实例，而不是工厂创建的实例。
+![binaryTree](../resources/image/取地址符.png "binaryTree")
+##### 3：实现了FactoryBean的一些方法
+FactoryBean：实现了此接口的，就是一个bean工厂,返回的都是Object
+
+
+#### ListableBeanFactory extends BeanFactory
+作用：返回了一系列的bean，根据不同的条件获取，可迭代。
+学到了：提供了list特性的bean工厂，可以枚举每一个bean定义，或者获取bean信息或者bean的实例。
+##### getBeanDefinitionCount
+不考虑父工厂的bean,并且忽略通过bean定义以外的其他方式注册的任何单例bean。
+
+
+#### HierarchicalBeanFactory extends BeanFactory 
+作用：获取父工厂，并且可以查找bean是否存在,忽略了祖先bean工厂中具有给定名称的bean。
+
+
+#### EnvironmentCapable
+作用：配置工厂环境
+ 
+
+#### MessageSource
+作用：解析消息
+
+
+#### ApplicationEventPublisher
+观察者模式：监听事件，通知观察者，进行时间回调
+
+
+#### ResourceLoader
+作用：加载资源
+
+
+#### ApplicationContext  extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory, MessageSource, ApplicationEventPublisher, ResourcePatternResolver
 

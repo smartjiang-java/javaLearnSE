@@ -24,7 +24,6 @@ public class GenericClass<T> {
         genericMethodUpperlimit(11.1f);
         genericMethodUpperlimit(11L);
 
-
         //理式代换：父类出现的地方，子类也能出现
         ArrayList<Number> list = new ArrayList<>();
         list.add(1);
@@ -39,7 +38,6 @@ public class GenericClass<T> {
 
     /*这里的参数t就是根据传进来的参数来决定类型*/
     public static <T> void genericMethod(T t) {
-
         System.out.println(t);
     }
 

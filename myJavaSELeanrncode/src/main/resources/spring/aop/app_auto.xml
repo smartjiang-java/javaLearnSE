@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+    <!-- id就是bean的标识，反射通过类的全限定类名去加载-->
+    <bean id="tank" class="jqk.learn.framework.spring.aop.v2.Tank"/>
+    <bean id="timeProxy" class="jqk.learn.framework.spring.aop.v2.TimeProxy"/>
+
+    <aop:aspectj-autoproxy/>
+
+</beans>
