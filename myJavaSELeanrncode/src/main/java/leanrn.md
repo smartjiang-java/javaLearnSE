@@ -220,6 +220,42 @@ EJB：JAVA Bean.很复杂
 面试题目：[在java中能够向下转型的条件是什么？]   --->必须先发生向上转型
 
 
+RandomAccessFile：可以随机读取，从哪开始，读取多少字节，实现了Closeable接口
+JoinForkPool线程池，并行框架
+优化点：减少网络IO，减少磁盘IO，如果都不能减少，那就只能减少Io的次数和大小
+
+![binaryTree](../resources/image/数据读取各级复制.png "binaryTree")
+关于NIO:Buffer
+除了其内容之外，缓冲区的基本属性还包括其容量（指针，永远指向最后一位），限制（初始化为0，）和位置（开始与limit相当，读一位移动一位）
+缓冲区的容量是它包含的元素数量。 缓冲区的容量永远不会为负，也不会改变。
+缓冲区的限制是不应读取或写入的第一个元素的索引。 缓冲区的限制永远不会为负，并且永远不会大于缓冲区的容量。
+缓冲区的位置是下一个要读取或写入的元素的索引。 缓冲区的位置永远不会为负，也不会大于其限制
+0 <=标记<=位置<=极限<=容量
+
+
+x锁：互斥锁
+s锁：share：共享
+
+
+Closeable接口：自动关流，很爽
+如果一个类实现了Closeable接口，可以这样写,会自动关流，而无需在finally里面手动关流：
+```java
+        try(FileInputStream stream = new FileInputStream("")){
+            
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+```
+
+获取路径的三种方法
+```java
+        new File("").getAbsolutePath();
+        //会将../转译，上面的不会转译，都是从项目路径开始返回
+        new File("").getCanonicalPath();
+        //写啥就是啥，原封不动的返回,加了/，是相对于C盘
+        new File("/user").getPath();
+```
+
 ### spring学习及源码分析
 在Java中，接口是对行为的高度抽象，说明了要做什么，但是没有说具体的计划
 面向对象的设计原则：接口隔离
