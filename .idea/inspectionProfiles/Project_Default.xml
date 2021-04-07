@@ -31,7 +31,7 @@
       <option name="IGNORE_JAVADOC_PERIOD" value="true" />
       <option name="IGNORE_DUPLICATED_THROWS" value="false" />
       <option name="IGNORE_POINT_TO_ITSELF" value="false" />
-      <option name="myAdditionalJavadocTags" value="date,Date:2020/10/9,Author:JQK,Date:2020/10/12,Date:2021/2/5,Package:jqk.learn.sofa_http,ClassName:Person,ClassName:BaseResponse,Package:jqk.learn.sofa_http.utils,ClassName:DefaultErrorCode,ClassName:HttpClientTool,Package:jqk.learn.mybatisplus,ClassName:User,Package:jqk.learn.mybatisplus.service,ClassName:UserService,Package:jqk.learn.mybatisplus.service.impl,ClassName:UserServiceImpl,Package:jqk.learn.mybatisplus.controller,ClassName:UserController,ClassName:SofaTransferHttp,Author:JiangQiKun,Date:2021/2/7,Date:2020/11/30,Date:2021/2/8,Package:com.jqk.use.connection,ClassName:Connection,Package:com.jqk.use.addnode,ClassName:SyncAdd,ClassName:AsynAdd,Date:2021/3/7" />
+      <option name="myAdditionalJavadocTags" value="date,Date:2020/10/9,Author:JQK,Date:2020/10/12,Date:2021/2/5,Package:jqk.learn.sofa_http,ClassName:Person,ClassName:BaseResponse,Package:jqk.learn.sofa_http.utils,ClassName:DefaultErrorCode,ClassName:HttpClientTool,Package:jqk.learn.mybatisplus,ClassName:User,Package:jqk.learn.mybatisplus.service,ClassName:UserService,Package:jqk.learn.mybatisplus.service.impl,ClassName:UserServiceImpl,Package:jqk.learn.mybatisplus.controller,ClassName:UserController,ClassName:SofaTransferHttp,Author:JiangQiKun,Date:2021/2/7,Date:2020/11/30,Date:2021/2/8,Package:com.jqk.use.connection,ClassName:Connection,Package:com.jqk.use.addnode,ClassName:SyncAdd,ClassName:AsynAdd,Date:2021/3/7,Date:2021/3/22,Date:2021/2/21,Date:2020/12/15" />
     </inspection_tool>
   </profile>
 </component>

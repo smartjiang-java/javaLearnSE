@@ -1,5 +1,7 @@
 package jqk.learn.sofa_http.utils;
 
+import lombok.Data;
+
 /**
  * @Author:JQK
  * @Date:2021/2/5 14:38
@@ -7,6 +9,7 @@ package jqk.learn.sofa_http.utils;
  * @ClassName:BaseResponse
  **/
 
+@Data
 public class BaseResponse<T> {
     private String code;
     private String msg;
@@ -35,35 +38,5 @@ public class BaseResponse<T> {
         this(error.getCode(), error.getMessage(), data);
     }
 
-    public String getCode() {
-        return this.code;
-    }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return this.msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return this.data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public Throwable getE() {
-        return this.e;
-    }
-
-    public void setE(Throwable e) {
-        this.e = e;
-    }
 }

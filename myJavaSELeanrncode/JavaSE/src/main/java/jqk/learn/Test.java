@@ -15,6 +15,7 @@ public class Test {
         String[] splitStrings = temp.split(",");
         for (String s : splitStrings) {
             System.out.println(s);
+            
         }
     }
 }

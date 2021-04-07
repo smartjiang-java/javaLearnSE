@@ -11,10 +11,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestBean {
 
     public static void main(String[] args) {
-      ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring/ioc/applicationContext.xml");
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/ioc/applicationContext.xml");
         //FileSystemXmlApplicationContext applicationContext1=new FileSystemXmlApplicationContext("myJavaSELeanrncode/applicationContext.xml");
-       Person person = (Person) applicationContext.getBean("person");
+        Person person = applicationContext.getBean(Person.class);
         System.out.println(person);
-
     }
 }
