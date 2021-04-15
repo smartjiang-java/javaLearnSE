@@ -6,11 +6,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * spring aop test
  */
-
 public class Main {
+
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring/aop/app_auto.xml");
-        Tank t = (Tank)context.getBean("tank");
+        Tank t = context.getBean(Tank.class);
         t.move();
     }
 }

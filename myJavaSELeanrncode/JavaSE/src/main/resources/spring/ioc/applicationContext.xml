@@ -16,10 +16,10 @@
 
     <!-- spring默认是单例的,容器创建时就装配;设置成prototype则是多例的,在使用该bean才被装配,等同于BeanFactory-->
     <bean id="person1" class="jqk.learn.framework.spring.ioc.Person"
-          p:name="lisi" p:age="24"  />
+          p:name="list" p:age="24"  />
 
     <bean id="person2" class="jqk.learn.framework.spring.ioc.Person" primary="true"
-          c:name="zhangsan" c:age="23"  />
+          c:name="hangman" c:age="23"  />
 
 </beans>
 

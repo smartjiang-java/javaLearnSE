@@ -6,6 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * spring aop test
  * @author 16770
+ *
+ *  Aop的原理就是动态代理
  */
 
 public class Main {

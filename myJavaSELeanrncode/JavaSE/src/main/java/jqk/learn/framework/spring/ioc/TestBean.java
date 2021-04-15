@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Date:2021/2/21 18:53
  * Description:
  * jqk.learn.framework.spring.iocTestBean
+ *  IOC 的原理就是反射
  */
 public class TestBean {
 
