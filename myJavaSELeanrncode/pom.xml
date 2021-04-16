@@ -9,6 +9,7 @@
         <module>SpringZookeeper</module>
         <module>Java8</module>
         <module>SpringBoot</module>
+        <module>Distributed</module>
     </modules>
 
     <parent>
