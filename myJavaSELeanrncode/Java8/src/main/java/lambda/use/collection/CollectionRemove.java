@@ -1,4 +1,4 @@
-package lambda.use;
+package lambda.use.collection;
 
 import lambda.use.vo.Person;
 import org.junit.Test;

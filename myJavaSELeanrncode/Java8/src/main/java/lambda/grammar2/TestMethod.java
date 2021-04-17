@@ -2,6 +2,8 @@ package lambda.grammar2;
 
 import org.junit.Test;
 
+import java.util.function.BiPredicate;
+
 /**
  * @Author:jiangqikun
  * @Date:2021/4/15 10:22
@@ -20,21 +22,28 @@ public class TestMethod {
         return a * 2;
     }
 
-    private  int changes(int a) {
+    private int changes(int a) {
         return a * 2;
     }
 
+    /**
+     * 方法引用
+     */
     @Test
-    public void test(){
-        LambdaSingleReturnSingleParmeter lambdaSingleReturnSingleParmeter=n -> change(n);
-        LambdaSingleReturnSingleParmeter lambdaSingleReturnSingleParmeter2=TestMethod::change;
-
-        LambdaSingleReturnSingleParmeter lambdaSingleReturnSingleParmeter1= this::changes;
+    public void test() {
+        MyInterface2 myInterface2 = n -> change(n);
+        //类 :: 静态方法名
+        MyInterface2 myInterface22 = TestMethod::change;
+        //对象 :: 实例方法名
+        MyInterface2 myInterface21 = this::changes;
+        //类 :: 实例方法名   第一个参数是方法的调用者,第二个参数是实例方法的参数
+        BiPredicate <String ,String > biPredicate=(x,y)->x.equals(y);
+        BiPredicate <String ,String > bp=String::equals;
     }
 
 }
 
 @FunctionalInterface
-interface LambdaSingleReturnSingleParmeter {
+interface MyInterface2 {
     int test(int n);
 }

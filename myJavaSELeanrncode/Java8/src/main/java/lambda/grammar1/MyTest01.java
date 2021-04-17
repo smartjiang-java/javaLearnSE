@@ -18,16 +18,24 @@ public class MyTest01 {
 
     @Test
     public void test() {
-        LambdaSingleReturnMutipleParmeter lambdaSingleReturnMutipleParmeter = (a, b) -> {
+        MyInterfce myInterfce = (a, b) -> {
             System.out.println("------------");
             return a + b;
         };
-        lambdaSingleReturnMutipleParmeter.test(10,20);
+        myInterfce.test(10,20);
     }
 }
 
+/**
+ * Lambda表达式需要函数时接口的支持, 函数式接口有且只有一个抽象方法
+ * (ps:重写了超类Object类中任意一个public方法的方法并不算接口中的抽象方法,例如Comparator接口)
+ * 可以用@FunctionalInterface修饰,检查是不是函数式接口
+ */
 @FunctionalInterface
-interface LambdaSingleReturnMutipleParmeter {
+interface MyInterfce {
     int test(int a, int b);
+
+    @Override
+    boolean equals(Object obj);
 }
 
