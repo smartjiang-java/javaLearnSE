@@ -1,4 +1,4 @@
-package lambda.use.vo;
+package vo;
 
 import lombok.Data;
 
@@ -17,4 +17,5 @@ class Person {
         this.name = name;
         this.age = age;
     }
+
 }

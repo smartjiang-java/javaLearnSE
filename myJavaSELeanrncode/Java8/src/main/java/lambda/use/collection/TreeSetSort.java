@@ -1,6 +1,6 @@
 package lambda.use.collection;
 
-import lambda.use.vo.Person;
+import vo.Person;
 import org.junit.Test;
 
 import java.util.*;

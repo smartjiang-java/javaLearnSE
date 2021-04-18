@@ -1,11 +1,10 @@
 package lambda.use.collection;
 
-import lambda.use.vo.Person;
+import vo.Person;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  * @Author:jiangqikun

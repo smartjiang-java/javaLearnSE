@@ -42,7 +42,47 @@ Type :: new    ,例如 String [] :: new
 3:强大的Stream API 
 stream是Java8中处理集合,处理数组.过程中,可以进行一系列流水线的中间操作.数据源是不会被改变的,会产生一个新流.
 stream的操作:创建stream,中间操作,终止操作(终端操作)
-
+中间操作不会有任何的结果
+/**
+*  筛选和切片
+*   filter() --接受Lambda表达式,从流中排除某些元素
+*   limit(n) --截断流,使其元素不超过n
+*   skip(n)  --跳过元素,返回一个跳过前n个元素的流;若流元素不足n个,则返回一个空,与limit()互补\
+*   distinct()--通过元素的hashcode()和equals()方法,去除重复元素;若元素为对象类型,需要重写hashcode()和equasl()方法
+*/
+    /**
+    *  映射
+    *  map     --接收lamdba,将元素转换成其他形式或提取信息.接受一个函数作为参数,该函数会被应用到每个元素上,并将其映射称一个新的元素
+    *          对函数的要求:入参是元素,要有返回值
+    *  flatmap --接收一个函数作为参数,将流中的每个值都替换成另一个流,然后把所有流连接成一个流.
+    */
+       /**
+      *  排序
+      *  sorted()                 --自然排序   Comparable # int compareTo(T o);
+      *  sorted(Comparator com)   --定制排序   int compare(T o1, T o2);
+         */
+         /**
+        * 终止操作:查找与匹配
+        *  allMatch     --检查是否匹配所有元素(所有的都要满足条件)
+        *  anyMatch     --检查是否至少匹配一个元素(有一个满足条件就行)
+        *  noneMatch    --检查是否没有匹配所有元素(所有的都不满足条件)
+        *  findFirst    --返回第一个元素
+        *  findAny      --返回当前流中的任意元素
+        *  count        --返回流中元素的总个数
+        *  max          --返回流中最大值
+        *  min          --返回流中最小值
+           */
+         /**
+          *  规约:可以将流中元素反复结合起来,得到一个值 ,T t代表起始值,不传默认从第一个开始
+          *  注意:map和reduce统称为map-reduce模式,因Google用它来进行网络搜索而出名
+          *  reduce (T t,BinaryOperator bo)
+          *  reduce (BinaryOperator bo)
+             */
+             /**
+         *  收集
+         *  collect  --将流转化为其他形式,接收一个Collector接口的实现,用于给Stream中元素做汇总
+         *  Collectors实用类提供了很多静态方法,可以方便的创建收集器实例
+            */
 4:便于并行
 
 
