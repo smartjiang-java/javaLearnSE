@@ -12,6 +12,7 @@
         <module name="SpringZookeeper" />
         <module name="SpringBoot" />
         <module name="Java8" />
+        <module name="Distributed" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -132,6 +133,7 @@
       <module name="051-springboot-dubbo-ssm-interface" options="-parameters" />
       <module name="052-springboot-dubbo-ssm-provider" options="-parameters" />
       <module name="053-springboot-dubbo-ssm-consumer" options="-parameters" />
+      <module name="Distributed" options="-parameters" />
       <module name="Java8" options="-parameters" />
       <module name="JavaSE" options="-parameters" />
       <module name="SpringBoot" options="-parameters" />

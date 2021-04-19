@@ -83,8 +83,40 @@ stream的操作:创建stream,中间操作,终止操作(终端操作)
          *  collect  --将流转化为其他形式,接收一个Collector接口的实现,用于给Stream中元素做汇总
          *  Collectors实用类提供了很多静态方法,可以方便的创建收集器实例
             */
+   
+         
 4:便于并行
-
+注意： 并行流和顺序流
+并行流就是将一个内容分成多个数据块，并用不同的线程分别处理每个数据块的流，底层用的是fork/join
+java 8 将并行就行了优化，可以很容易的对数据进行并行操作。Stream API 可以声明性的通过 parallel() 和 sequential() 在并行流和顺序流之间进行切换。
 
 
 5:最大化减少空指针异常 Optional 
+Optional<T> 是一个容器类，代表一个值存在还是不存在，原来用null表示一个值不存在，现在Optional可以个更好的表达这个概念，并且可以避免空指针异常。
+常见方法：
+Optional.of(T t)：根据传入的值创建一个Optional实例
+Optional.empty():创建一个空的Optional实例
+Optional.ofNullable(T t):若 t 不为null,创建Optional实例，否则创建空实例。
+Optional.isPresent():判断是否包含值
+Optional.get（）：获取Optional中的值
+Optional.orElse(T t):如果调用对象包含值，返回该值，否则返回t
+Optional.orElseGet(Supplier s):如果调用对象包含值，返回改值，否则返回s
+Optional.map(Function f):如果有值对其处理，并返回处理后的Optional，否则返回Optional.empty()
+Optional.flatMap(Function mapper):与Optional.map(Function f)类似，要求返回值必须是Optional
+
+
+6:接口中的默认方法和静态方法
+ jdk 8 以前，接口中只有成员，一个是抽象方法，一个是全局静态常量
+1：jdk 8,允许接口中有默认实现的方法，default 方法
+注意：
+     若一个接口中定义了一个默认方法，而另外的一个父类或接口中有定义了一个同名的方法时。
+     会产生接口冲突，那么必须覆盖该方法来解决冲突
+2：可以有静态方法，默认通过接口.方法名调用
+
+
+7：全新的时间和日期 API 
+
+
+8:重复注解与类型注解
+ java 8对注解也做了两点改进：可重复注解及可用于类型的注解 TYPE_PARAMETER(对类型进行注解)。
+

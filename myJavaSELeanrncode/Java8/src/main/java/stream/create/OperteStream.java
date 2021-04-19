@@ -26,10 +26,10 @@ public class OperteStream {
          *   skip(n)  --跳过元素,返回一个跳过前n个元素的流;若流元素不足n个,则返回一个空,与limit()互补\
          *   distinct()--通过元素的hashcode()和equals()方法,去除重复元素;若元素为对象类型,需要重写hashcode()和equasl()方法
          */
-//        list.stream().filter(e->e.getAge()>24).forEach(System.out::println);
-//        list.stream().filter(e->e.getAge()>24).limit(1).forEach(System.out::println);
-//        list.stream().filter(e->e.getAge()>24).skip(2).forEach(System.out::println);
-//        list.stream().filter(e->e.getAge()>24).skip(2).distinct().forEach(System.out::println);
+        list.stream().filter(e->e.getAge()>24).forEach(System.out::println);
+        list.stream().filter(e->e.getAge()>24).limit(1).forEach(System.out::println);
+        list.stream().filter(e->e.getAge()>24).skip(2).forEach(System.out::println);
+        list.stream().filter(e->e.getAge()>24).skip(2).distinct().forEach(System.out::println);
 
         /**
          *  映射
@@ -37,17 +37,17 @@ public class OperteStream {
          *          对函数的要求:入参是元素,要有返回值
          *  flatmap --接收一个函数作为参数,将流中的每个值都替换成另一个流,然后把所有流连接成一个流.
          */
-//        list.stream().map(str->str.getAge()).forEach(System.out::println);
-//        list.stream().map(Person::getAge).forEach(System.out::println);
-//        list.stream().map(this::filters).forEach(stream->stream.forEach(System.out::println));
-//        list.stream().flatMap(this::filters).forEach(System.out::println);
+        list.stream().map(str->str.getAge()).forEach(System.out::println);
+        list.stream().map(Person::getAge).forEach(System.out::println);
+        list.stream().map(this::filters).forEach(stream->stream.forEach(System.out::println));
+        list.stream().flatMap(this::filters).forEach(System.out::println);
 
         /**
          *  排序
          *  sorted()                 --自然排序   Comparable # int compareTo(T o);
          *  sorted(Comparator com)   --定制排序   int compare(T o1, T o2);
          */
-       // list.stream().sorted((e1,e2)->e2.getAge()-e1.getAge()).forEach(System.out::println);
+        list.stream().sorted((e1,e2)->e2.getAge()-e1.getAge()).forEach(System.out::println);
 
         /**
          * 终止操作:查找与匹配
@@ -60,17 +60,17 @@ public class OperteStream {
          *  max          --返回流中最大值
          *  min          --返回流中最小值
          */
-//        boolean b = list.stream().allMatch(e -> e.getAge() > 0);
-//        boolean b1 = list.stream().anyMatch(e -> e.getAge() > 25);
-//        boolean b2 = list.stream().noneMatch(e -> e.getAge() > 26);
-//        Person person = list.get(0);
-//        Optional<Person> first = list.stream().findFirst();
-//        Person person1 = first.get();
-//        Optional<Person> any = list.stream().findAny();
-//        int size = list.size();
-//        long count = list.stream().count();
-//        Optional<Person> max = list.stream().max((e1, e2) -> e1.getAge() - e2.getAge());
-//        Optional<Person> min = list.stream().min((e1, e2) -> e1.getAge() - e2.getAge());
+        boolean b = list.stream().allMatch(e -> e.getAge() > 0);
+        boolean b1 = list.stream().anyMatch(e -> e.getAge() > 25);
+        boolean b2 = list.stream().noneMatch(e -> e.getAge() > 26);
+        Person person = list.get(0);
+        Optional<Person> first = list.stream().findFirst();
+        Person person1 = first.get();
+        Optional<Person> any = list.stream().findAny();
+        int size = list.size();
+        long count = list.stream().count();
+        Optional<Person> max = list.stream().max((e1, e2) -> e1.getAge() - e2.getAge());
+        Optional<Person> min = list.stream().min((e1, e2) -> e1.getAge() - e2.getAge());
 
         /**
          *  规约:可以将流中元素反复结合起来,得到一个值 ,T t代表起始值,不传默认从第一个开始
@@ -78,11 +78,11 @@ public class OperteStream {
          *  reduce (T t,BinaryOperator bo)
          *  reduce (BinaryOperator bo)
          */
-//        Optional<Person> sunqi = list.stream().reduce((x, y) -> {
-//            x.setAge(x.getAge() + y.getAge());
-//            return x;
-//        });
-//        System.out.println(sunqi.get());
+        Optional<Person> sunqi = list.stream().reduce((x, y) -> {
+            x.setAge(x.getAge() + y.getAge());
+            return x;
+        });
+        System.out.println(sunqi.get());
 
         /**
          *  收集
@@ -137,6 +137,5 @@ public class OperteStream {
         list.add(new Person("wangwu", 25));
         list.add(new Person("zhaoliu", 26));
         return list;
-
     }
 }
