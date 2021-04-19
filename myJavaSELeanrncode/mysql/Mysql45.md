@@ -1,4 +1,4 @@
-                                      Mysql实战45讲
+                                                Mysql实战45讲
 
 ## 1：一条sql查询语句是如何执行的？
 ![binaryTree](../mysql/image/1/sql查询步骤.png   "binaryTree")
@@ -294,12 +294,55 @@ explain select * from T where a between 1 and 1000 and b between 50000 and 10000
 4：使用analyze table可以解决索引统计信息不准确导致的索引选错的问题
 ```mysql
 #使用命令，重新统计索引信息，避免得到错误的扫面行数。
-ananlyse table T;
+analyze  table T;
 explain select * from T where a between 1000 and 2000;
 ```
 
 
 ## 11：怎么给字符串加索引？
+前缀索引：定义字符串的一部分作为索引。占用空间小，但是可能会增加额外的记录扫描次数,会影响性能。所以，定义好长度很关键。
+默认的，如果创建索引的语句不指定前缀长度，那么索引就会包含整个字符串。
+前缀索引越长，回表查询次数就越少；前缀索引越长，占用磁盘空间就越大，相同的数据页能放下的索引值就越少，搜索的效率就会降低。
+
+问题：有什么方法能够确定我们应该使用多长的前缀呢？
+    简历索引关心的是区分度，区分度越高越好，意味着重复的键值越少。
+```mysql
+# 算出列上有多少个不同的值
+select count(distinct email) as L form T;
+
+# 选取不同长度的前缀来看这个值
+select 
+       count (distinct left(email,4)) as L4 ,
+       count (distinct left(email,5)) as L5 ,
+       count (distinct left(email,6)) as L6 ,
+       count (distinct left(email,7)) as L7 
+from T
+```
+注意：使用前缀索引很可能会损失区分度。所以你需要预先设定一个可以接受的损失比例，比如5%.
+
+问题：前缀索引对覆盖索引的影响？
+   使用前缀索引，需要回到ID索引，去进行回表。而使用覆盖索引的话不需要进行回表了。 所以：前缀索引会导致覆盖索引不可用。
+
+问题：对于长字符串，应该怎样进行进行建立索引？
+1：直接创建完整索引，这样可能会比较占用空间
+2：建立前缀索引，节省空间，但是会增加扫描次数，并且不能使用覆盖索引
+3：字符串到序存储+前缀索引,增大区分度,解决字符串本身前缀的区分度不够的问题，不支持范围查询
+```mysql
+# 倒序存储的查询方式
+select  field_first_list from T where id_card =reverse('input_id_card_string');
+```
+4：添加hash字段+在hash字段上加索引，查询性能稳定，有额外的存储和计算消耗，不支持范围查询
+```mysql
+# 在表上再创建一个整数字段，来保存字段的检验码，同时在这个字段上创建索引
+alter table T add id_card_crc int unsigned,add index(id_card_crc)
+
+# 每次插入新记录的时候，都同时使用crc32（）函数得到校验码填到这个新字段。但是检验码可能存在冲突，还要还要判断字段是否相同
+select field_list from T where id_card_crc =crc32('input_id_card_string') and id_card='input_id_card_string';
+```
+5：字段拆分（一个字段可拆为两个以上）
+
+
+##  为什么我的Mysql会“抖”一下？
 
 
 

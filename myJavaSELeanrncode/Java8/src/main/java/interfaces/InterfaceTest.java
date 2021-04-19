@@ -12,7 +12,6 @@ public class InterfaceTest {
     @Test
     public void test() {
         MyInterface.show();
-
     }
 }
 
@@ -21,7 +20,7 @@ interface MyInterface {
         System.out.println("接口中的默认方法");
     }
 
-    public static  void show(){
+    static void show() {
         System.out.println("接口中的静态方法");
     }
 
@@ -33,7 +32,7 @@ class FatherClass {
     }
 }
 
-class SubClass extends FatherClass implements MyInterface{
+class SubClass extends FatherClass implements MyInterface {
 
 }
 
