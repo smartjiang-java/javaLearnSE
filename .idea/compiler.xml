@@ -12,7 +12,6 @@
         <module name="SpringZookeeper" />
         <module name="SpringBoot" />
         <module name="Java8" />
-        <module name="Distributed" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -74,6 +73,7 @@
       <module name="b" target="1.8" />
       <module name="com.jqk.zookeeper" target="1.7" />
       <module name="demo" target="1.8" />
+      <module name="Distributed" target="8" />
       <module name="springredisdemo" target="1.8" />
       <module name="zookeeperdemo" target="1.7" />
       <module name="zookerperdemo" target="1.8" />

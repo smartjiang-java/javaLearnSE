@@ -1,7 +1,7 @@
                                                 Mysql实战45讲
 
 ## 1：一条sql查询语句是如何执行的？
-![binaryTree](../mysql/image/1/sql查询步骤.png   "binaryTree")
+![binaryTree](/image/1/sql查询步骤.png   "binaryTree")
 
 mysql可以分为Server 层和存储引擎层两部分。
   Server 层涵盖mysql的大多数核心功能，以及所有的内置函数（如日期，时间，数学等），所有跨存储引擎的功能都在这一层实现，如存储过程，触发器，视图等。
@@ -372,7 +372,7 @@ mysql抖一下，就是在刷脏页。刷脏页的场景：
  参数 innodb_max_dirty_pages_pct 是脏页比例上限，默认是75%.,InnoDB 会根据当前的脏页比例（假设为M），算出一个0-100之间的数字，计算公式记为 F1(M)
  InnoDB每次写入的日志都有一个序号（LSN），当前写入的序号与chenkpoint之间的差值，假设为N。InnoDB会根据N计算出一个0-100之间的数字，计算公式记为F2(N),N越大，计算出来的值越大
 根据上述计算出来的 F1(M) 和 F2(N) ,取其中的较大值记为 R，之后innoDB 就可以根据 innodb_io_capacity 乘以 R% 来控制刷脏页的速度。
-![binaryTree](../mysql/image/12/刷脏页的速度.png  "binaryTree")
+![binaryTree](/image/12/刷脏页的速度.png  "binaryTree")
  要尽量避免这种状况，合理的设置innodb_io_capacity的值，并且平时要多关注脏页比例，不要让它经常接近75%
 
 问题：刷脏页的连坐问题
