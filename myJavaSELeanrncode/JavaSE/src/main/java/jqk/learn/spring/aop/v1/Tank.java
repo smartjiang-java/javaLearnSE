@@ -1,4 +1,4 @@
-package jqk.learn.framework.spring.aop.v1;
+package jqk.learn.spring.aop.v1;
 
 
 

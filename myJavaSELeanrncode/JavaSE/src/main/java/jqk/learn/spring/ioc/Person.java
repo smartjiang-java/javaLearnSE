@@ -1,4 +1,4 @@
-package jqk.learn.framework.spring.core;
+package jqk.learn.spring.ioc;
 
 import lombok.Data;
 import org.springframework.beans.factory.FactoryBean;

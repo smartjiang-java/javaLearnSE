@@ -8,8 +8,8 @@
         http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
 
-    <bean id="tank" class="jqk.learn.framework.spring.aop.v1.Tank"/>
-    <bean id="timeProxy" class="jqk.learn.framework.spring.aop.v1.TimeProxy"/>
+    <bean id="tank" class="jqk.learn.spring.aop.v1.Tank"/>
+    <bean id="timeProxy" class="jqk.learn.spring.aop.v1.TimeProxy"/>
 
     <aop:config>
         <aop:aspect id="time" ref="timeProxy">

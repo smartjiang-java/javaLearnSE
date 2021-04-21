@@ -1,4 +1,4 @@
-package jqk.learn.special.design;
+package jqk.learn.designPattern;
 
 /**
  * @Author:JQK

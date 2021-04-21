@@ -1,4 +1,4 @@
-package jqk.learn.framework.spring.aop.v2;
+package jqk.learn.spring.aop.v2;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

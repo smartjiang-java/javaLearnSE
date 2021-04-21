@@ -1,4 +1,4 @@
-package jqk.learn.framework.spring.core;
+package jqk.learn.spring.ioc;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,9 +16,11 @@ public class Main {
      * 问题1：既然是spring来管理bean，那么bean肯定有生命周期       控制对象：可以使用代理模式
      * 问题2：在创建bean和销毁bean的时候，spring是不是可以干点啥   增强对象:装饰者模式
      * 问题3；spring如何管理bean与bean之间的依赖关系
+     *
+     * IOC 的原理就是反射
      */
     public static void main(String[] args) throws Exception {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring/core/applicationContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring/ioc/applicationContext.xml");
         //实现了FactoryBean，创建实例的时候调用FactoryBean接口的getObject()方法;加上&地址符，返回的是工厂本身
         if (context.containsBean("person")) {
             Person person = context.getBean("&person", Person.class);

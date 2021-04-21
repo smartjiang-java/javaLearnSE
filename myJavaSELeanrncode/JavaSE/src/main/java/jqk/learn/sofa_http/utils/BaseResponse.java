@@ -38,5 +38,4 @@ public class BaseResponse<T> {
         this(error.getCode(), error.getMessage(), data);
     }
 
-
 }

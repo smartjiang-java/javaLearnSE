@@ -1,4 +1,4 @@
-package jqk.learn.framework.spring.annocation;
+package jqk.learn.spring.annocation;
 
 import java.lang.annotation.*;
 
@@ -23,18 +23,18 @@ import java.lang.annotation.*;
 }
 
 @Table(value = "张三", name = "天下无敌")
-public class AnnocationDemo {
+public class AnnotationsDemo {
     public static void main(String[] args) throws NoSuchMethodException {
         //通过类加载器去获取注解：相当于一只手，能拿到头上的所有东西
-        Class<AnnocationDemo> clazz = AnnocationDemo.class;
+        Class<AnnotationsDemo> clazz = AnnotationsDemo.class;
 /*        Annotation[] annotations = clazz.getAnnotations();
         for (Annotation annotation : annotations) {
             //获取注解的类型:是一个interface
             Class<? extends Annotation> type = annotation.annotationType();
             System.out.println(annotation);
         }*/
-        Table annocation = clazz.getAnnotation(Table.class);
-        if (annocation != null) {
+        Table annexation = clazz.getAnnotation(Table.class);
+        if (annexation != null) {
             //do something
             //System.out.println(table.name());
 

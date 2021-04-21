@@ -1,4 +1,4 @@
-package jqk.learn.special.design;
+package jqk.learn.designPattern;
 
 
 import java.lang.reflect.InvocationHandler;

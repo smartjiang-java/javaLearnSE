@@ -8,8 +8,8 @@
         http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
     <!-- id就是bean的标识，反射通过类的全限定类名去加载-->
-    <bean id="tank" class="jqk.learn.framework.spring.aop.v2.Tank"/>
-    <bean id="timeProxy" class="jqk.learn.framework.spring.aop.v2.TimeProxy"/>
+    <bean id="tank" class="jqk.learn.spring.aop.v2.Tank"/>
+    <bean id="timeProxy" class="jqk.learn.spring.aop.v2.TimeProxy"/>
 
     <aop:aspectj-autoproxy/>
 

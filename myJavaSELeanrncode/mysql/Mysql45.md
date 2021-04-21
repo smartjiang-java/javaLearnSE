@@ -38,7 +38,7 @@ Server 层
 
 
 ## 2：一条sql更新语句是如何执行的？
-mysql的WAL技术:全称Write-Ahead Logging,关键点就是先写日志,再写磁盘.
+mysql的WAL技术:全称Write-Ahead Logging,关键点就是先写日志,再写磁盘。
  redo log:相当于小黑板,更新记录一般先写到redo log里,并更新内存,这时候更新操作就算完成了.InnoDB会在适当的时候,将操作记录更新到磁盘里面.
           redo log是固定大小的,写满了就必须要更新到磁盘一部分,ring buffer.从头开始写,写到末尾又回到开头循环写.
           有了redo log(InnoDB引擎特有的日志),InnoDB就可以保证即使数据发生异常重启,之前提交的记录都不会丢失,这个能力称为crash-safe.

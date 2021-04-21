@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jqk.learn.mybatisplus.vo.User;
 import jqk.learn.sofa_http.utils.HttpClientTool;
-import jqk.learn.framework.spring.core.Person;
+import jqk.learn.spring.ioc.Person;
 
 import java.util.HashMap;
 import java.util.Map;
