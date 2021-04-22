@@ -63,7 +63,7 @@ stream的操作:创建stream,中间操作,终止操作(终端操作)
          */
          /**
         * 终止操作:查找与匹配
-        *  allMatch     --检查是否匹配所有元素(所有的都要满足条件)
+        *  allMatch     --检查是否匹配所有元素(所有的都要满足条件)6
         *  anyMatch     --检查是否至少匹配一个元素(有一个满足条件就行)
         *  noneMatch    --检查是否没有匹配所有元素(所有的都不满足条件)
         *  findFirst    --返回第一个元素
@@ -115,6 +115,7 @@ Optional.flatMap(Function mapper):与Optional.map(Function f)类似，要求返�
 
 
 7：全新的时间和日期 API 
+java 8以前的时间和日期API不好用,存在线程安全问题;新的API 在time包下,是线程安全的.
 
 
 8:重复注解与类型注解
