@@ -1,6 +1,7 @@
 package jqk.learn.sofa_http.utils;
 
 
+import com.alibaba.excel.util.CollectionUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
@@ -17,6 +18,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.ehcache.core.util.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -182,7 +184,7 @@ public class HttpClientTool {
             return null;
         }
         try {
-            if (params != null && !params.isEmpty()) {
+            if (!CollectionUtils.isEmpty(params)) {
                 List<NameValuePair> pairs = new ArrayList<NameValuePair>(params.size());
                 for (Map.Entry<String, String> entry : params.entrySet()) {
                     String value = entry.getValue();

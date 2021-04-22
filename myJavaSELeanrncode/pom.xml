@@ -56,6 +56,13 @@
             <version>3.2.0</version>
         </dependency>
 
+        <!-- mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
+
         <!-- sofa-http -->
         <dependency>
             <groupId>org.apache.commons</groupId>
