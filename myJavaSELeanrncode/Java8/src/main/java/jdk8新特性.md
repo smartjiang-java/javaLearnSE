@@ -116,9 +116,11 @@ Optional.flatMap(Function mapper):与Optional.map(Function f)类似，要求返�
 
 7：全新的时间和日期 API 
 java 8以前的时间和日期API不好用,存在线程安全问题;新的API 在time包下,是线程安全的.
-LocalDate、LocalTime、LocalDateTime类的实例示不可变的对象，分别表示使用ISO-8601日历系统的日期、时间、日期和时间。
-它们提供了简单的日期和时间，并不包含当前的时间信息，也不包含与时区相关的信息。
-
+* LocalDate、LocalTime、LocalDateTime类的实例示不可变的对象，分别表示使用ISO-8601日历系统的日期、时间、日期和时间。
+  它们提供了简单的日期和时间，并不包含当前的时间信息，也不包含与时区相关的信息。
+* TemporalAdjuster: 时间校正器。有时我们可能需要获取例如：将日期调整到 "下个周日" 等操作。
+  TemporalAdjusters：该类通过静态方法提供了大量的常用 TemporalAdjuster 的实现。
+* DateTimeFormatter: 格式化时间/日期
 
 
 8:重复注解与类型注解

@@ -1,5 +1,7 @@
 package time;
 
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 
@@ -7,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.*;
@@ -18,6 +21,8 @@ import java.util.concurrent.*;
  * timeSimpleDateFormateTest
  */
 public class SimpleDateFormateTest {
+
+    private final Log log = LogFactory.get();
 
     @Test
     public void test() {
@@ -36,9 +41,10 @@ public class SimpleDateFormateTest {
                 try {
                     return str.get();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("出现异常：{}", e);
                 }
-                return null;
+                //返回空集合，而非null
+                return Collections.emptyList();
             }).forEach(System.out::println);
         }
         threadPool.shutdown();
@@ -51,9 +57,9 @@ public class SimpleDateFormateTest {
     @Test
     public void test2() {
 
-        DateTimeFormatter df=DateTimeFormatter.ofPattern("yyyyMMdd");
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyyMMdd");
 
-        Callable<LocalDate> callable = () ->LocalDate.parse("20161218",df);
+        Callable<LocalDate> callable = () -> LocalDate.parse("20161218", df);
 
         ExecutorService threadPool = Executors.newFixedThreadPool(10);
         List<Future<LocalDate>> results = new ArrayList<>();

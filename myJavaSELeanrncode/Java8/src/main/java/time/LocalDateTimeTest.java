@@ -58,16 +58,16 @@ public class LocalDateTimeTest {
         Instant now = Instant.now();
         Instant now2 = Instant.now();
         Duration duration = Duration.between(now, now2);
-        duration.getSeconds();
-        duration.getNano();
-        duration.toMillis();
-        duration.toDays();
+        long seconds = duration.getSeconds();
+        int nano = duration.getNano();
+        long l = duration.toMillis();
+        long l1 = duration.toDays();
 
         LocalDate localDate=LocalDate.now();
         LocalDate localDate1= LocalDate.now();
         Period period = Period.between(localDate, localDate1);
-        period.getDays();
-        period.getYears();
-        period.getMonths();
+        int days = period.getDays();
+        int years = period.getYears();
+        int months = period.getMonths();
     }
 }
