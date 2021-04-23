@@ -9,15 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <dependencies>
-        <!--hutool工具包-->
-                <dependency>
-                    <groupId>cn.hutool</groupId>
-                    <artifactId>hutool-all</artifactId>
-                    <version>5.6.1</version>
-                </dependency>
-    </dependencies>
-
     <artifactId>Java8</artifactId>
 
     <properties>
