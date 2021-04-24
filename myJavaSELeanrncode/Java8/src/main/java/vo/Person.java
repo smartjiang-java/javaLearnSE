@@ -3,13 +3,13 @@ package vo;
 import lombok.Data;
 
 /**
- * @Author:jiangqikun
- * @Date:2021/4/15 11:11
- **/
-
+ * @Author:JiangQiKun
+ * @Date:2021/4/23 1:43
+ * Description:
+ * voPerson
+ */
 @Data
-public
-class Person {
+public class Person {
     private String name;
     private Integer age;
 
@@ -17,5 +17,4 @@ class Person {
         this.name = name;
         this.age = age;
     }
-
 }

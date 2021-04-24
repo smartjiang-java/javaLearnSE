@@ -1,7 +1,7 @@
 package lambda.use.collection;
 
-import vo.Person;
 import org.junit.Test;
+import vo.Person;
 
 import java.util.ArrayList;
 import java.util.List;
