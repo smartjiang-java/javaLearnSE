@@ -59,8 +59,6 @@ public class TestLock {
                     //释放锁
                     watchCallback.unLock();
 
-
-
                 }
             }.start();
         }

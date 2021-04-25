@@ -96,8 +96,6 @@ public class App {
                 break;
         }
 
-
-
         //拿到Zookeeper连接后
         //增加节点
         //zooKeeper.getData(节点目录   数据   访问控制    四种节点类型(持久，临时))
