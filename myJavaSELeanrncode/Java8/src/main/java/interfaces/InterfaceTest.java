@@ -12,6 +12,7 @@ public class InterfaceTest {
     @Test
     public void test() {
         MyInterface.show();
+        new SubClass().print();
     }
 }
 
@@ -33,6 +34,10 @@ class FatherClass {
 }
 
 class SubClass extends FatherClass implements MyInterface {
+    @Override
+    public void print() {
+        System.out.println(" this is Override");
+    }
 
 }
 
