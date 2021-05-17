@@ -116,6 +116,11 @@ jQAssistant也提供了DDD代码检查的插件
 DDD资料：https://qiyu2580.gitbooks.io/iddd/content/guide-to-this-book.html
 学习过程：
 
+## DDD 总览
+DDD的通用语言，通用语言作用域某个限界上下文，它对于领域建模是非常重要的。
+请记住，不管是在战术上还是战略上设计软件模型，你都应该保证：在一个特定的限界上下文中只使用一套通用语言，并且保证它的清晰性和简洁性。
+
+
 
 
 
