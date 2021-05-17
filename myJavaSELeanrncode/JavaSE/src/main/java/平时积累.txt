@@ -3,7 +3,7 @@
 字符串替换s： String.format(“hello%sputty”, "world");
 定时：@Scheduled(cron = "0 0/30 9-18 ? * 2-6")
 bean复制：BeanUtils.copyProperties(item1,item2);   将item1复制到item2，复制共有的字段
-将list<>去重 ，需要重写Person类的equala()和hashcode()方法
+将list<>去重 ，需要重写Person类的equala()和hashcode()方法,jdk8的stream流
 List<Person> listC = listA.stream().distinct().collect(Collectors.toList());
 测试list断言：Assert.assertEquals(ture,list.size()>0);
 

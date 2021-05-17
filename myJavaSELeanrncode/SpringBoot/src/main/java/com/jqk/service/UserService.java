@@ -12,6 +12,12 @@ import java.util.List;
 
 public interface UserService extends IService<User> {
 
+    /**
+     * 获取用户集合
+     *
+     * @param user 传进来的user参数
+     * @return 通过user条件，返回符合条件的User集合
+     */
     List<User> getSome(User user);
 
 }

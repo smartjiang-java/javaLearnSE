@@ -8,6 +8,7 @@ package jqk.learn.sofa_http.utils;
  **/
 
 public enum DefaultErrorCode implements  IErrorCode{
+
     SUCCESS("200", "success"),
     NULL_POINTER("0x00000001", "null pointer exception"),
     INDEX_OUT_OF_BOUNDS("0x00000002", "index out of bounds"),
