@@ -3,6 +3,7 @@ package optional;
 import org.junit.Test;
 import vo.Person;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 /**
@@ -25,20 +26,34 @@ public class OptionalTest {
      */
 
     @Test
-    public void test(){
-        Optional <Person> op=Optional.of(new Person("wangba",28));
+    public void test() {
+        Optional<Person> op = Optional.of(new Person("wangba", 28));
         Person person = op.get();
-        op.map(Person::getAge);
-        op.flatMap(e->Optional.of(e));
+        Optional<Integer> integer = op.map(Person::getAge);
+        op.flatMap(e -> Optional.of(e));
 
-        Optional<Object> empty = Optional.empty();
+        Optional<String> empty = Optional.empty();
 
         Optional<Object> o = Optional.ofNullable(null);
-        if(o.isPresent()){
+        if (o.isPresent()) {
             Object o1 = o.get();
+            System.out.println(o1);
         }
-        o.orElse("else值");
-        o.orElseGet(()->"orElse值");
+        Object o2 = o.orElse("else值");
+        System.out.println(o2);
+        Person person1 = op.orElse(null);
+        System.out.println(person1);
+        final Object o3 = o.orElseGet(() -> "orElse值");
+        System.out.println(o3);
+
+
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(111);
+        list.add(222);
+        Optional<ArrayList<Integer>> list1 = Optional.of(list);
+        ArrayList<Integer> integers = list1.get();
+        integers.forEach(System.out::println);
+
 
     }
 

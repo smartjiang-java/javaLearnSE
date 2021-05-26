@@ -4,11 +4,11 @@ import com.jqk.service.UserService;
 import com.jqk.vo.User;
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -22,7 +22,7 @@ public class UserRestController {
 
     private final Log log = LogFactory.get();
 
-    @Resource
+    @Autowired
     private UserService userService;
 
     @GetMapping("/getAllUsers")

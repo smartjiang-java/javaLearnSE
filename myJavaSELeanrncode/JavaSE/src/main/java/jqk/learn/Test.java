@@ -2,6 +2,9 @@ package jqk.learn;
 
 
 import com.github.houbb.markdown.toc.core.impl.AtxMarkdownToc;
+import jqk.learn.utils.BeanConverUtil;
+import lombok.Data;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +21,8 @@ public class Test {
     public static void main(String[] args) {
         //print();
         //buildDirectory();
-        testGc();
+        //testGc();
+        testutils();
     }
 
     public static void print() {
@@ -37,8 +41,8 @@ public class Test {
     }
 
     /**
-     *   -Xmx8M  -XX:+PrintGCDetails -verbose:gc
-     *   测试垃圾回收器
+     * -Xmx8M  -XX:+PrintGCDetails -verbose:gc
+     * 测试垃圾回收器
      */
     public static void testGc() {
         int i = 0;
@@ -55,4 +59,18 @@ public class Test {
             System.out.println(i);
         }
     }
+
+    /**
+     * 测试 List<A> a 转化成 List<B> b
+     */
+    public static void testutils() {
+        List<Person>  list=new ArrayList<>();
+        list.add(new Person("1","zhsnagsan"));
+        list.add(new Person("2","lisi"));
+        List<User> users = BeanConverUtil.converList(list, User.class);
+        users.forEach(System.out::println);
+    }
+
 }
+
+
