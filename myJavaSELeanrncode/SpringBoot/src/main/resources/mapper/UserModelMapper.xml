@@ -9,4 +9,21 @@
         <result column="age" property="age"/>
     </resultMap>
 
+    <select id="getAllStu" resultType="com.jqk.vo.User">
+        select * from user
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertBy" >
+
+insert into student (name ,age,score) values(#{name},#{age},#{score})
+<selectKey resultType="int" keyProperty="id" order="AFTER">
+    select @@identity
+</selectKey>
+    </insert>
+
 </mapper>

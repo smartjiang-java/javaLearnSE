@@ -1,4 +1,4 @@
-package jqk.learn;
+package jqk.learn.test;
 
 import lombok.Data;
 

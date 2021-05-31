@@ -71,6 +71,8 @@
       <module name="052-springboot-dubbo-ssm-provider" target="1.8" />
       <module name="053-springboot-dubbo-ssm-consumer" target="1.8" />
       <module name="b" target="1.8" />
+      <module name="bolt-annocation-client" target="8" />
+      <module name="bolt-annocation-server" target="8" />
       <module name="com.jqk.zookeeper" target="1.7" />
       <module name="demo" target="1.8" />
       <module name="Distributed" target="8" />
@@ -140,6 +142,8 @@
       <module name="SpringRedis" options="-parameters" />
       <module name="SpringZookeeper" options="-parameters" />
       <module name="b" options="-parameters" />
+      <module name="bolt-annocation-client" options="-parameters" />
+      <module name="bolt-annocation-server" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="myJavaSELeanrncode" options="-parameters" />
       <module name="springredisdemo" options="-parameters" />

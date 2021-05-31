@@ -27,6 +27,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.lt("age", 27);
         queryWrapper.ge("id", 1);
+
+        ThreadLocal<String> stringThreadLocal = new ThreadLocal<>();
+        stringThreadLocal.remove();
         return userMapper.selectList(queryWrapper);
+    }
+
+    @Override
+    public List<User> getUser(User user) {
+        if(null==user){
+            return  userMapper.getAllStu();
+        }
+        return userMapper.getAllStu(user.getId());
     }
 }

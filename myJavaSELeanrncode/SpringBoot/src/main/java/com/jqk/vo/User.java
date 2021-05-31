@@ -14,7 +14,7 @@ import lombok.Data;
 @TableName("user")
 public class User{
     @TableId(value = "id", type = IdType.INPUT)
-    private Long id;
+    private String id;
     private String name;
     private Integer age;
 
@@ -23,7 +23,7 @@ public class User{
         this.age = age;
     }
 
-    public User(Long id, String name, Integer age) {
+    public User(String id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;

@@ -1,10 +1,8 @@
-package jqk.learn;
+package jqk.learn.test;
 
 
 import com.github.houbb.markdown.toc.core.impl.AtxMarkdownToc;
 import jqk.learn.utils.BeanConverUtil;
-import lombok.Data;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +20,7 @@ public class Test {
         //print();
         //buildDirectory();
         //testGc();
-        testutils();
+        testUtils();
     }
 
     public static void print() {
@@ -63,13 +61,23 @@ public class Test {
     /**
      * 测试 List<A> a 转化成 List<B> b
      */
-    public static void testutils() {
+    public static void testUtils() {
         List<Person>  list=new ArrayList<>();
-        list.add(new Person("1","zhsnagsan"));
-        list.add(new Person("2","lisi"));
+        list.add(new Person("1","张三"));
+        list.add(new Person("2","李四"));
         List<User> users = BeanConverUtil.converList(list, User.class);
         users.forEach(System.out::println);
     }
+
+    /**
+     * 测试包装类和普通类的区别
+     */
+    public static void testPackaging(){
+        Integer i=1;
+        Boolean b=false;
+    }
+    
+    
 
 }
 

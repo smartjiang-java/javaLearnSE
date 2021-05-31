@@ -32,4 +32,11 @@ public class UserRestController {
         return users;
     }
 
+    @GetMapping("/test")
+    public void getUsers(){
+        User user = new User("1", null, null);
+        System.out.println(userService.getUser(null));
+        System.out.println(userService.getUser(user));
+    }
+
 }

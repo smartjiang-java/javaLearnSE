@@ -20,4 +20,11 @@ public interface UserService extends IService<User> {
      */
     List<User> getSome(User user);
 
+    /**
+     *
+     * @param user 传进来的user参数
+     * @return 通过user条件，返回符合条件的User集合
+     */
+    List<User> getUser(User user);
+
 }
