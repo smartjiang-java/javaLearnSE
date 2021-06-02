@@ -22,5 +22,10 @@ public interface UserMapper extends BaseMapper<User> {
 
     List<User> getAllStu(@Param("id") String id);
 
-
+    /**
+     * 测试动态SQL，遍历集合
+     * @param users User集合
+     * @return 满足条件的User集合
+     */
+    List<User> selectForeachList2(List<User> users);
 }

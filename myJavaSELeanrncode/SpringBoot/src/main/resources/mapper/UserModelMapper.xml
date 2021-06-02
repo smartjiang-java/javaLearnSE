@@ -4,12 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.jqk.vo.User">
+        <!--对于字段名和实体类的属性名相同的情况下，可以不写入resultMap中 -->
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="age" property="age"/>
     </resultMap>
 
-    <select id="getAllStu" resultType="com.jqk.vo.User">
+    <select id="getAllStu" resultMap="BaseResultMap">
         select * from user
         <where>
             <if test="id != null">
@@ -18,12 +19,29 @@
         </where>
     </select>
 
-    <insert id="insertBy" >
+    <select id="selectForeachArray" resultMap="BaseResultMap">
+        select * from user
+        <if test="array != null and array.length > 0">
+            where id in
+            <foreach collection="array" open="(" close=")" item="myid" separator=",">
+                #{myid}
+            </foreach>
+        </if>
+    </select>
 
-insert into student (name ,age,score) values(#{name},#{age},#{score})
-<selectKey resultType="int" keyProperty="id" order="AFTER">
-    select @@identity
-</selectKey>
-    </insert>
+
+    <select id="selectForeachList2" resultMap="BaseResultMap">
+        select * from user
+                <if test="list != null and list.size > 0">
+                    where id in
+                    <foreach collection="list" open="(" close=")" item="use" separator=",">
+                       #{use.id}
+                    </foreach>
+                    and age > 10
+                </if>
+
+    </select>
+
+
 
 </mapper>

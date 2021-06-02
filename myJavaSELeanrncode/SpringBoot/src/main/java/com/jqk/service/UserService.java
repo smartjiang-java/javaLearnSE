@@ -27,4 +27,6 @@ public interface UserService extends IService<User> {
      */
     List<User> getUser(User user);
 
+    List<User> selectForeachList2(List<User> users);
+
 }

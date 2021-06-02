@@ -2,7 +2,7 @@ package jqk.learn.test;
 
 
 import com.github.houbb.markdown.toc.core.impl.AtxMarkdownToc;
-import jqk.learn.utils.BeanConverUtil;
+import jqk.learn.utils.BeanCoverUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,8 +65,12 @@ public class Test {
         List<Person>  list=new ArrayList<>();
         list.add(new Person("1","张三"));
         list.add(new Person("2","李四"));
-        List<User> users = BeanConverUtil.converList(list, User.class);
-        users.forEach(System.out::println);
+        Person person = new Person("3", "王五");
+        List<User> users = BeanCoverUtil.coverList(list, User.class);
+        System.out.println(users);
+        User user = BeanCoverUtil.coverBean(person, User.class);
+        System.out.println(user);
+
     }
 
     /**

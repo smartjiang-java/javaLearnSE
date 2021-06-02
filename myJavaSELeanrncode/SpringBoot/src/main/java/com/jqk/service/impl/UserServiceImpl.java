@@ -40,4 +40,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         return userMapper.getAllStu(user.getId());
     }
+
+    @Override
+    public List<User> selectForeachList2(List<User> users) {
+        return  userMapper.selectForeachList2(users);
+    }
+
+
 }
