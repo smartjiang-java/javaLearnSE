@@ -4,9 +4,10 @@ package jqk.learn.test;
 import com.github.houbb.markdown.toc.core.impl.AtxMarkdownToc;
 import jqk.learn.utils.BeanCoverUtil;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 /**
  * @Author:JQK
@@ -62,15 +63,32 @@ public class Test {
      * 测试 List<A> a 转化成 List<B> b
      */
     public static void testUtils() {
+        List<User> users = BeanCoverUtil.coverList(returnPersons(), User.class);
+        System.out.println(users);
+
+        testCollectingAndThen(users);
+
+        Iterator<User> iterator = users.iterator();
+        while (iterator.hasNext()){
+            User next = iterator.next();
+            if ("李四".equals(next.getName())){
+                iterator.remove();
+                System.out.println(users);
+            }
+        }
+        System.out.println(users);
+    }
+
+
+    public static List<Person> returnPersons(){
         List<Person>  list=new ArrayList<>();
         list.add(new Person("1","张三"));
         list.add(new Person("2","李四"));
+        list.add(new Person("2","李四"));
+        list.add(new Person("1","张三"));
         Person person = new Person("3", "王五");
-        List<User> users = BeanCoverUtil.coverList(list, User.class);
-        System.out.println(users);
-        User user = BeanCoverUtil.coverBean(person, User.class);
-        System.out.println(user);
-
+        list.add(person);
+        return  list;
     }
 
     /**
@@ -80,9 +98,17 @@ public class Test {
         Integer i=1;
         Boolean b=false;
     }
-    
-    
 
+    /**
+     * 测试 users 集合去重并组成新的集合
+     * @param users User集合
+     */
+    public static void testCollectingAndThen(List<User> users){
+        ArrayList<User> collect =
+                users.stream().collect(collectingAndThen(toCollection(() -> new TreeSet<>(Comparator.comparing(User::getName))),
+                        ArrayList::new));
+        System.out.println(collect);
+    }
 }
 
 

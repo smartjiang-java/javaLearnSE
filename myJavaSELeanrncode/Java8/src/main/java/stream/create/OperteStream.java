@@ -23,7 +23,7 @@ public class OperteStream {
          *  筛选和切片
          *   filter() --接受Lambda表达式,从流中排除某些元素
          *   limit(n) --截断流,使其元素不超过n
-         *   skip(n)  --跳过元素,返回一个跳过前n个元素的流;若流元素不足n个,则返回一个空,与limit()互补\
+         *   skip(n)  --跳过元素,返回一个跳过前n个元素的流;若流元素不足n个,则返回一个空,与limit()互补
          *   distinct()--通过元素的hashcode()和equals()方法,去除重复元素;若元素为对象类型,需要重写hashcode()和equasl()方法
          */
         list.stream().filter(e->e.getAge()>24).forEach(System.out::println);
