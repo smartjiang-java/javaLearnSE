@@ -112,7 +112,6 @@ jQAssistant也提供了DDD代码检查的插件
 
 
 
-
 DDD资料：https://qiyu2580.gitbooks.io/iddd/content/guide-to-this-book.html
 学习过程：
 微服务到底怎么拆分和设计才算合理，拆多小才叫合理。微服务的边界是最容易产生争议的地方。

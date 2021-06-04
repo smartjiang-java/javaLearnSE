@@ -1,11 +1,9 @@
 package jqk.learn.test;
 
-
 import com.github.houbb.markdown.toc.core.impl.AtxMarkdownToc;
 import jqk.learn.utils.BeanCoverUtil;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 
@@ -69,9 +67,9 @@ public class Test {
         testCollectingAndThen(users);
 
         Iterator<User> iterator = users.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             User next = iterator.next();
-            if ("李四".equals(next.getName())){
+            if ("李四".equals(next.getName())) {
                 iterator.remove();
                 System.out.println(users);
             }
@@ -79,36 +77,38 @@ public class Test {
         System.out.println(users);
     }
 
-
-    public static List<Person> returnPersons(){
-        List<Person>  list=new ArrayList<>();
-        list.add(new Person("1","张三"));
-        list.add(new Person("2","李四"));
-        list.add(new Person("2","李四"));
-        list.add(new Person("1","张三"));
+    public static List<Person> returnPersons() {
+        List<Person> list = new ArrayList<>();
+        list.add(new Person("1", "张三"));
+        list.add(new Person("2", "李四"));
+        list.add(new Person("2", "李四"));
+        list.add(new Person("1", "张三"));
         Person person = new Person("3", "王五");
         list.add(person);
-        return  list;
+        return list;
     }
 
     /**
      * 测试包装类和普通类的区别
      */
-    public static void testPackaging(){
-        Integer i=1;
-        Boolean b=false;
+    public static void testPackaging() {
+        Integer i = 1;
+        Boolean b = false;
     }
 
     /**
      * 测试 users 集合去重并组成新的集合
-     * @param users User集合
      */
-    public static void testCollectingAndThen(List<User> users){
+    public static void testCollectingAndThen(List<User> users) {
         ArrayList<User> collect =
                 users.stream().collect(collectingAndThen(toCollection(() -> new TreeSet<>(Comparator.comparing(User::getName))),
                         ArrayList::new));
         System.out.println(collect);
     }
+
+
+
+
 }
 
 
