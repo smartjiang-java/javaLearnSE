@@ -57,7 +57,6 @@ create table t_agn_template_dir
 )ENGINE=InnoDB COMMENT='模板目录关系表';
 
 
-
 drop table if exists t_agn_document_directory;
 create table t_agn_document_directory
 (
@@ -79,7 +78,6 @@ create table t_agn_document_directory
     PRIMARY KEY (`id`),
     INDEX                    idx_gmt_modified (gmt_modified)
 )ENGINE=InnoDB COMMENT='单证目录';
-
 
 
 drop table if exists t_agn_document;
@@ -114,7 +112,6 @@ create table t_agn_document
     PRIMARY KEY (`id`),
     INDEX                    idx_gmt_modified (gmt_modified)
 )ENGINE=InnoDB COMMENT='单证';
-
 
 
 drop table if exists t_agn_document_rule;
