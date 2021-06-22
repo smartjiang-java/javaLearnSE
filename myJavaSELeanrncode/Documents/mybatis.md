@@ -141,6 +141,18 @@ Cache Hit Ratio 表示缓存命中率，先查一级缓存，再查二级缓存�
     
 ```
 
+18：通常一个 Xml 映射文件，都会写一个 Dao 接口与之对应，请问，这个 Dao 接口的工作原理是什么？Dao 接口里的方法，参数不同时，方法能重载吗？
+Dao 接口，就是人们常说的 Mapper接口，接口的全限名，就是映射文件中的 namespace 的值，接口的方法名，
+就是映射文件中MappedStatement的 id 值，接口方法内的参数，就是传递给 sql 的参数。Mapper接口是没有实现类的，
+当调用接口方法时，接口全限名+方法名拼接字符串作为 key 值，可唯一定位一个MappedStatement。
+Dao 接口里的方法可以重载，但是Mybatis的XML里面的ID不允许重复，使用动态sql可以实现，多个接口对应的映射必须只有一个，否则启动会报错。
+Dao 接口的工作原理是 JDK 动态代理，MyBatis 运行时会使用 JDK 动态代理为 Dao 接口生成代理 proxy 对象，
+代理对象 proxy 会拦截接口方法，转而执行MappedStatement所代表的 sql，然后将 sql 执行结果返回。
+
+19：MyBatis 的 Xml 映射文件中，不同的 Xml 映射文件，id 是否可以重复？
+不同的 Xml 映射文件，如果配置了 namespace，那么 id 可以重复；如果没有配置 namespace，那么 id 不能重复；毕竟 namespace 不是必须的，只是最佳实践而已。
+
+
 
 
 

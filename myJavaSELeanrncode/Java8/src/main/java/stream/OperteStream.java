@@ -1,4 +1,4 @@
-package stream.create;
+package stream;
 
 import org.junit.Test;
 import vo.Person;
