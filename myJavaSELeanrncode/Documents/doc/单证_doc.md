@@ -139,6 +139,7 @@ create table t_agn_document_proof
     is_qualified                      varchar(2) COMMENT '是否合格：0默认未打标，1是，2否',
     unqualified_reason_cd             varchar(2) COMMENT '不合格原因,1:图片拍摄不清晰,2:资料部分被遮挡,3:资料拍摄不完整,4:同类资料有缺失,5:图中资料未盖章,6:图中资料非原件',
     document_proof_approve_supplement varchar(1024) COMMENT '单证打标补充说明',
+    is_complete                       varchar(2) COMMENT '是否置全，0否，1是',
     document_account_code             varchar(32) COMMENT '操作人员账号',
     document_account_name             varchar(255) COMMENT '操作人员名称',
     creator                           varchar(32) COMMENT '创建人',

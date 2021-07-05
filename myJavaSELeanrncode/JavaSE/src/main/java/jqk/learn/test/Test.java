@@ -19,7 +19,8 @@ public class Test {
         //print();
         //buildDirectory();
         //testGc();
-        testUtils();
+        // testUtils();
+        list();
     }
 
     public static void print() {
@@ -106,7 +107,16 @@ public class Test {
         System.out.println(collect);
     }
 
-
+    public static void list() {
+        Person person = new Person("1", "张三");
+        Person p = BeanCoverUtil.coverBean(person, Person.class);
+        person.setId("2");
+        List<Person> list = new ArrayList<>();
+        list.add(person);
+        p.setId("3");
+        list.add(p);
+        list.forEach(System.out::println);
+    }
 
 
 }
