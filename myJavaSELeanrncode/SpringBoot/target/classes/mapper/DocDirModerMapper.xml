@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jqk.mapper.DocDirMapper">
+
+    <resultMap id="newsLaterMapper" type="com.jqk.vo.DocDir">
+        <id column="id" property="id"/>
+        <result column="pid" property="pid"/>
+        <collection property="docDirs"  ofType="com.jqk.vo.DocDir" select="selectByParentId" column="id" />
+        <collection property="docs" ofType="com.jqk.vo.Doc" select="selectByDocId" column="id"/>
+     </resultMap>
+
+    <select id="selectByParentId" resultMap="newsLaterMapper">
+        select id,pid,name from doc_dir where pid=#{xxx}
+    </select>
+
+    <select id="selectByDocId" resultMap="docDir">
+        select id,dir_id,name from doc where dir_id=#{xxx}
+    </select>
+
+    <resultMap id="docDir" type="com.jqk.vo.Doc">
+        <!--对于字段名和实体类的属性名相同的情况下，可以不写入resultMap中 -->
+        <id column="id" property="id"/>
+        <result column="dir_id" property="dirId"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="newsLaterMapper" >
+        select id,pid,name from doc_dir where id=#{ooo}
+    </select>
+
+
+</mapper>
