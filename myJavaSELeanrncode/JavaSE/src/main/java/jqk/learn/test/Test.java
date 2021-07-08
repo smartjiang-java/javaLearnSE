@@ -45,7 +45,7 @@ public class Test {
     public static void testGc() {
         int i = 0;
         try {
-            List<String> list = new ArrayList<>();
+            List<String> list = new ArrayList<>(10);
             String a = "hello";
             while (true) {
                 list.add(a); // hello, hellohello, hellohellohellohello ...
@@ -64,9 +64,7 @@ public class Test {
     public static void testUtils() {
         List<User> users = BeanCoverUtil.coverList(returnPersons(), User.class);
         System.out.println(users);
-
         testCollectingAndThen(users);
-
         Iterator<User> iterator = users.iterator();
         while (iterator.hasNext()) {
             User next = iterator.next();
