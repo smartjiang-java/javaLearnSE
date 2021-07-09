@@ -19,32 +19,5 @@ import java.util.List;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
-    @Autowired
-    private UserMapper userMapper;
-
-    @Override
-    public List<User> getSome(User user) {
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lt("age", 27);
-        queryWrapper.ge("id", 1);
-
-        ThreadLocal<String> stringThreadLocal = new ThreadLocal<>();
-        stringThreadLocal.remove();
-        return userMapper.selectList(queryWrapper);
-    }
-
-    @Override
-    public List<User> getUser(User user) {
-        if(null==user){
-            return  userMapper.getAllStu();
-        }
-        return userMapper.getAllStu(user.getId());
-    }
-
-    @Override
-    public List<User> selectForeachList2(List<User> users) {
-        return  userMapper.selectForeachList2(users);
-    }
-
 
 }

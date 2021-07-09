@@ -33,42 +33,9 @@ public class UserRestController {
 
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
-        List<User> users = userService.getSome(null);
+        List<User> users =userService.query().eq("age","24").eq("id","2").list();
         log.info("返回的结果集数量为：{}，结果集是：{}", users.size(), users);
         return users;
     }
-
-    @GetMapping("/test")
-    public void getUsers() {
-        User user = new User("1", null, null);
-        System.out.println(userService.getUser(null));
-        System.out.println(userService.getUser(user));
-    }
-
-    @GetMapping("/test2")
-    public void getUsers2() {
-        User user = new User("1", null, 1);
-        User use2 = new User("2", null, 2);
-        User use3 = new User("3", null, 3);
-        List<User> users = new ArrayList<>();
-        users.add(user);
-        users.add(use2);
-        users.add(use3);
-        userService.selectForeachList2(users).forEach(System.out::println);
-    }
-
-    @GetMapping("/test3")
-    public DocDir getUsers3() {
-        DocDir docDir = docDirService.selectById("1");
-        System.out.println(docDir);
-        return  docDir;
-    }
-    @GetMapping("/test4")
-    public  List<DocDir> getUsers4() {
-        List<DocDir> docDirs = docDirService.selectByParentId("1");
-        System.out.println(docDirs);
-        return  docDirs;
-    }
-
 
 }
