@@ -16,17 +16,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @Author: yuShuai
  * @Description: Swagger2的接口配置
  * @Date: 2019/10/8 13:41
- * @params:
- * @return:
  */
+
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
-
     @Value("${config.swaggerConfig.isShow}")
     private Boolean isShow;
-
 
     @Bean
     public Docket createUserRestApi() {
@@ -47,7 +44,6 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
-
 
     /**
      * 添加摘要信息
